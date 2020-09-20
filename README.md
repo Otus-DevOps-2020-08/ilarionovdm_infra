@@ -14,3 +14,6 @@ ilarionovdm Infra repository
 
 bastion_IP = 84.201.173.137
 someinternalhost_IP = 10.130.0.32
+
+testapp_IP = 130.193.51.207
+testapp_port = 9292
