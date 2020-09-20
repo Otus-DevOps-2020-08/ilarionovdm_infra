@@ -1,0 +1,21 @@
+#cloud-config
+users:
+  - name: yc-user
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy9Jmicq7EICjZzprq0kyNNdjBXsHp7sa2rwPolIwPs34MmxygC21vh8W/5290aaBSS3uCiiKk3qJwIAeF1oC5KPKyRUVHs3EqXJUPd0QeuQKmGWLn+WpfGfDUt81oRcUYGm8FBa8MPThzoVd+/0I7+nt2kNYgwH6DYzAWnm321uE8qe/OCTXEtj6ex8p/eO8wvhxvRFg1FTAfKt7MXT91KbxnUoPaMdVyhHj4LawG4LbEhgCNQaD9iYOmZFdX/Gv7K2qYTFZ02dZGP1lqvY1Kpiun0gpDJ4pQpPQvs1BF8rbqn05PEpJxlUIZOO4rK1lx4GP7ZSYVKswTG9OqOx8/ appuser
+    lock_passwd: true
+
+runcmd:
+  - [cd, home/yc-user]
+  - [sudo, apt, update]
+  - [sudo, apt, -y, install, git]
+  - [git, clone, -b, cloud-testapp, "https://github.com/Otus-DevOps-2020-08/ilarionovdm_infra.git"]
+  - [cd, ilarionovdm_infra]
+  - [sudo, bash, install_ruby.sh]
+  - [sudo, bash, install_mongodb.sh]
+  - [cd, ".."]
+  - [git, clone, -b, monolith, "https://github.com/express42/reddit.git"]
+  - [sudo, bash, ilarionovdm_infra/deploy.sh]
