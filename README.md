@@ -28,3 +28,6 @@ testapp_port = 9292
 >>  --metadata serial-port-enable=1 `
 >>  --metadata-from-file user-data=test.yaml `
 >>  --preemptible
+
+
+#для rebuild
