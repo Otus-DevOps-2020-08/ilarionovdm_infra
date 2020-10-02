@@ -11,8 +11,7 @@
             "platform_id": "standard-v1",
             "use_ipv4_nat": true,
             "preemptible": true,
-            "instance_cores": 2,
-            
+            "instance_cores": 2
         }
     ],
     "provisioners": [
