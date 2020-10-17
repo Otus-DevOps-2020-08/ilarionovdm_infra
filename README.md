@@ -33,3 +33,6 @@ testapp_port = 9292
 #для rebuild5
 #Добавлен packer, пример вызова:
 #packer build -var-file=variables.json ubuntu16.json
+
+#выполнено ДЗ№1 для терраформа, пример вызова:
+#terraform apply
